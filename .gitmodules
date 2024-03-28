@@ -1,0 +1,9 @@
+[submodule "cef"]
+	path = cef
+	url = https://github.com/martonp96/cef.git
+[submodule "depot_tools"]
+	path = depot_tools
+	url = https://chromium.googlesource.com/chromium/tools/depot_tools.git
+[submodule "chromium_git/cef"]
+	path = chromium_git/cef
+	url = https://github.com/martonp96/cef.git
