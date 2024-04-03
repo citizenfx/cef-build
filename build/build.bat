@@ -10,4 +10,4 @@ python automate-git.py^
  --no-cef-update^
  --no-debug-build^
  --no-depot-tools-update^
- --with-pgo-profiles
+ --with-pgo-profiles %*
