@@ -19,10 +19,15 @@
 
 ## Repo structure explanation
 In order to build CEF, you need to download an automate-git.py first, which matches your CEF version. Its available in older CEF branches in tools folder.
+
 Then you have to run this automation script which will download depot_tools, CEF and chromium. 
+
 These steps can be skipped by adding automate-git.py to this repository, then adding the old depot_tools and our CEF repo as submodules. This way you can basically create an older and working environment to build outdated versions.
+
 The no-depot-tools-update and no-cef-update parameters in build.bat are there to prevent overriding our submodules by the automate script.
+
 Chromium is not added as a submodule, the target version is set in CEF repo, in CHROMIUM_BUILD_COMPATIBILITY.txt.
+
 Ninja is included to avoid possible errors with building.
 
 ## Relevant docs
