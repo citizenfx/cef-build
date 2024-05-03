@@ -1,0 +1,49 @@
+name: CEF Build CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+    
+    steps:
+      - name: Support longpaths
+        run: git config --global core.longpaths true
+        
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
+
+      - name: Add depot_tools and ninja to PATH
+        run: |
+          echo "$env:GITHUB_WORKSPACE\depot_tools" >> $GITHUB_PATH
+          echo "$env:GITHUB_WORKSPACE\ninja" >> $GITHUB_PATH
+
+      - name: Prepare Depot
+        working-directory: ${{ github.workspace }}
+        run: |
+          cd .\build
+          .\prepare-depot.ps1
+
+      - name: Build CEF
+        working-directory: ${{ github.workspace }}
+        run: |
+          cd .\build
+          .\build.ps1
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release_build
+          path: chromium_git/chromium/src/cef/binary_distrib/*.zip 
+
+      - name: Create draft release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          # repository: citizenfx/cef
+          name: ${{ format('build-{0}', github.run_id) }}
+          tag_name: ${{ format('build-{0}', github.run_id) }}
+          files: chromium_git/chromium/src/cef/binary_distrib/*.zip
