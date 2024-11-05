@@ -20,7 +20,7 @@ $DEPOT_TOOLS_DIR = "X:\depot_tools"
 # Execute the build using dynamic paths
 & python "X:\build\automate-git.py" `
     --url="https://github.com/citizenfx/cef.git" `
-    --checkout="cfx-m124" `
+    --checkout="cfx-m130" `
     --download-dir="$DOWNLOAD_DIR" `
     --depot-tools-dir="$DEPOT_TOOLS_DIR" `
     --x64-build `
