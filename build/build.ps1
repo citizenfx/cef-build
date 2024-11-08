@@ -26,7 +26,8 @@ $DEPOT_TOOLS_DIR = "X:\depot_tools"
     --x64-build `
     --no-cef-update `
     --no-depot-tools-update `
-    --with-pgo-profiles $args
+    --with-pgo-profiles $args `
+    --force-build
 
 # Attempt to clean up and remove X: mapping at the end; ignore errors
 Invoke-Expression "subst X: /D" -ErrorAction SilentlyContinue
