@@ -25,6 +25,7 @@ $DEPOT_TOOLS_DIR = "X:\depot_tools"
     --depot-tools-dir="$DEPOT_TOOLS_DIR" `
     --x64-build `
     --no-cef-update `
+    --no-debug-build `
     --no-depot-tools-update `
     --with-pgo-profiles $args `
     --force-build
